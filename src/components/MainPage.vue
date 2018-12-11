@@ -1,11 +1,17 @@
 <template>
   <el-container id="main-container">
-    <Header />
+    <el-header id="header">
+      <Header />
+    </el-header>
     <el-container>
-      <el-aside width="200px" id="lateral-menu">Barra lateral</el-aside>
+      <el-aside width="200px" id="lateral-menu">
+        <Lateral />
+      </el-aside>
       <el-container>
         <el-main id="main-content">Principal</el-main>
-        <el-footer>Pie de página</el-footer>
+        <el-footer>
+          <Footer />
+        </el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -13,26 +19,33 @@
 
 <script>
 import Header from './Header.vue';
+import Lateral from './Lateral.vue';
+import Footer from './Footer.vue';
 
 export default {
   name: 'MainPage',
   components: {
-    Header
+    Header,
+    Lateral,
+    Footer
   }
 }
-console.log(process.env);
 </script>
 
 <style scoped lang="scss">
+  @import '../element-variables';
   #main-container {
-    background-color: lightgreen;
-
+    padding: 0;
+    #header {
+      height: 100%;
+      padding: 0;
+    }
     #lateral-menu {
       background-color: lightcyan;
     }
 
     #main-content {
-      background-color: lightpink;
+      background-color: $CUSTOM_gray_background;
     }
   }
 
