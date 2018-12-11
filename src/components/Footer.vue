@@ -31,7 +31,7 @@ export default {
 <style scoped lang="scss">
   #footer {
     p {
-      color: white;
+      color: black;
     }
   }
 
