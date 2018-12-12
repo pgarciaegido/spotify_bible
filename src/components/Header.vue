@@ -1,10 +1,10 @@
 <template>
   <el-row id="header">
-    <el-col :span="4">
+    <el-col id="logo" :span="2">
       <img src="@/assets/spotify_white.png" alt="">
     </el-col>
     <el-col :span="20">
-      <h2>Aquí va la magia del Header</h2>
+      <h2>Spotify Bible</h2>
     </el-col>
   </el-row>
 </template>
@@ -20,10 +20,14 @@ export default {
   #header {
     background-color: $CUSTOM_green;
     color: white;
+    padding: 20px $CUSTOM_padding;
 
-    img{
-      width: 30px;
-      height: 30px;
+    #logo {
+      text-align: left;
+      img{
+        width: 30px;
+        height: 30px;
+      }
     }
     h2 {
       margin: 0;

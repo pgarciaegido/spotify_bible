@@ -1,10 +1,10 @@
 <template>
   <el-container id="main-container">
-    <el-header id="header">
+    <el-header id="main-header">
       <Header />
     </el-header>
     <el-container>
-      <el-aside width="200px" id="lateral-menu">
+      <el-aside id="lateral-menu">
         <Lateral />
       </el-aside>
       <el-container>
@@ -36,9 +36,9 @@ export default {
   @import '../element-variables';
   #main-container {
     padding: 0;
-    #header {
-      height: 100%;
+    #main-header {
       padding: 0;
+      height: auto !important;
     }
     #lateral-menu {
       background-color: lightcyan;

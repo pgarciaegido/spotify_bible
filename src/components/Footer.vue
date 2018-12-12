@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <p>Spotify Bible {{ propertyComputed }}</p>
+    <p>Spotify Bible {{ year }}</p>
   </div>
 </template>
 
@@ -12,16 +12,7 @@ export default {
     }
   },
 
-  computed: {
-    propertyComputed() {
-      console.log('COMPUTING')
-      this.year = 2020;
-      return this.year;
-    }
-  },
-
   created() {
-    console.log('CREATED');
     this.year = (new Date()).getFullYear();
     console.log(this);
   }
@@ -36,4 +27,3 @@ export default {
   }
 
 </style>
-

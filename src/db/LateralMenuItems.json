@@ -1,0 +1,17 @@
+[
+  {
+    "id": "countryPopulars",
+    "icon": "el-icon-location",
+    "text": "Popular Artists By Country"
+  },
+  {
+    "id": "upcoming",
+    "icon": "el-icon-loading",
+    "text": "Upcoming"
+  },
+  {
+    "id": "upcoming2",
+    "icon": "el-icon-loading",
+    "text": "Upcoming"
+  }
+]
