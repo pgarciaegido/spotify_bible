@@ -8,7 +8,10 @@
         <Lateral />
       </el-aside>
       <el-container>
-        <el-main id="main-content">Principal</el-main>
+        <el-main id="main-content">
+          <h3>Router down here</h3>
+          <router-view></router-view>
+        </el-main>
         <el-footer>
           <Footer />
         </el-footer>
@@ -28,6 +31,10 @@ export default {
     Header,
     Lateral,
     Footer
+  },
+  created() {
+    console.log(this.$router);
+    console.log(this.$route);
   }
 }
 </script>

@@ -2,16 +2,19 @@
   {
     "id": "countryPopulars",
     "icon": "el-icon-location",
-    "text": "Popular Artists By Country"
+    "text": "Popular Artists By Country",
+    "route": "by-genre"
   },
   {
     "id": "upcoming",
     "icon": "el-icon-loading",
-    "text": "Upcoming"
+    "text": "Upcoming",
+    "route": "not-found"
   },
   {
     "id": "upcoming2",
     "icon": "el-icon-loading",
-    "text": "Upcoming"
+    "text": "Upcoming",
+    "route": "not-found"
   }
 ]
