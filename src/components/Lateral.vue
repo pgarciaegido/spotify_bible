@@ -1,16 +1,16 @@
 <template>
   <div>
-    <LateralItem v-for="item in items" :key="item.id" v-bind:menuItem="item"/>
+    <LateralItem v-for="item in items" :key="item.id" :menuItem="item"/>
   </div>
 </template>
 
 <script>
 import LateralItem from './LateralItem';
 
-import API from '../api.js';
+import api from '../api.js';
 
 export default {
-  name: 'Lateral',
+  name: 'TheLateral',
   components: {
     LateralItem
   },
@@ -20,9 +20,9 @@ export default {
     }
   },
   created() {
-    this.items = API.fetchMenuItems();
+    this.items = api.fetchMenuItems();
   }
-    
+
 }
 </script>
 

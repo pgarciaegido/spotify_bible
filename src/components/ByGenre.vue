@@ -8,7 +8,7 @@
 import api from '../api.js';
 
 export default {
-  name: 'byGenre',
+  name: 'ByGenre',
   created() {
     window.location.href =  api.getSpotifyAuthorizationURL();
   }

@@ -1,11 +1,11 @@
 <template>
   <el-container id="main-container">
     <el-header id="main-header">
-      <Header />
+      <TheHeader />
     </el-header>
     <el-container>
       <el-aside id="lateral-menu">
-        <Lateral />
+        <TheLateral />
       </el-aside>
       <el-container>
         <el-main id="main-content">
@@ -13,7 +13,7 @@
           <router-view></router-view>
         </el-main>
         <el-footer>
-          <Footer />
+          <TheFooter />
         </el-footer>
       </el-container>
     </el-container>
@@ -21,20 +21,16 @@
 </template>
 
 <script>
-import Header from './Header.vue';
-import Lateral from './Lateral.vue';
-import Footer from './Footer.vue';
+import TheHeader from './Header.vue';
+import TheLateral from './Lateral.vue';
+import TheFooter from './Footer.vue';
 
 export default {
   name: 'MainPage',
   components: {
-    Header,
-    Lateral,
-    Footer
-  },
-  created() {
-    console.log(this.$router);
-    console.log(this.$route);
+    TheHeader,
+    TheLateral,
+    TheFooter
   }
 }
 </script>

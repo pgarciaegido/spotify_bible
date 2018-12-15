@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'TheFooter',
   data() {
     return {
       year: 0
@@ -14,7 +15,6 @@ export default {
 
   created() {
     this.year = (new Date()).getFullYear();
-    console.log(this);
   }
 }
 </script>
