@@ -10,7 +10,9 @@ import api from '../api.js';
 export default {
   name: 'ByGenre',
   created() {
-    window.location.href =  api.getSpotifyAuthorizationURL();
+    if (Object.keys(this.$route.query).length === 0) {
+      window.location.href =  api.goToSpotifyAuthorizationPage('by-genre');
+    }
   }
 }
 </script>

@@ -3,10 +3,22 @@
 </template>
 
 <script>
+import queryString from 'query-string';
+
 export default {
   name: 'StoreCredentials',
+  data() {
+    return {
+      to: null
+    }
+  },
   created() {
-    console.log(this.$route);
+    const credentials = queryString.parse(this.$route.hash);
+
+    this.to = this.$route.query.to;
+    setTimeout(() => {
+      this.$router.push({path: this.to, query: {auth: true}});
+    }, 2000);
   }
 }
 </script>

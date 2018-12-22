@@ -8,7 +8,7 @@ export default {
     return MenuItems;
   },
 
-  getSpotifyAuthorizationURL(goTo) {
+  goToSpotifyAuthorizationPage(goTo) {
     const redirectionPath = '/store-credentials';
 
     return `${spotifyAccountsBaseURL}?client_id=${process.env.VUE_APP_SPOTIFY_CLIENT_ID}&response_type=token&redirect_uri=http://localhost:8080${redirectionPath}?to=${goTo}&state=123`;

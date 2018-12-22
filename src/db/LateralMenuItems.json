@@ -1,8 +1,8 @@
 [
   {
-    "id": "countryPopulars",
+    "id": "genrePopulars",
     "icon": "el-icon-location",
-    "text": "Popular Artists By Country",
+    "text": "Popular Artists By Genre",
     "route": "by-genre"
   },
   {
