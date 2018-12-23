@@ -3,6 +3,8 @@
     <el-header id="main-header">
       <TheHeader />
     </el-header>
+    <p>{{count}}</p>
+    <p>{{ countPlusTen }}</p>
     <el-container>
       <el-aside id="lateral-menu">
         <TheLateral />
@@ -21,6 +23,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import TheHeader from './Header.vue';
 import TheLateral from './Lateral.vue';
 import TheFooter from './Footer.vue';
@@ -31,7 +35,21 @@ export default {
     TheHeader,
     TheLateral,
     TheFooter
+  },
+  /* computed: {
+    count() {
+      return this.$store.state.count;
+    },
+    countPlusTen() {
+      return this.$store.getters.addTen;
+    }
+  }, */
+  computed: mapState(['count', 'countPlusTen']),
+  created() {
+    this.$store.commit('increment', {amount: 10});
+    setTimeout(() => this.$store.commit('increment', {amount: 10}), 5000);
   }
+  
 }
 </script>
 
