@@ -13,11 +13,12 @@ export default {
     }
   },
   created() {
-    const credentials = queryString.parse(this.$route.hash);
+
+    this.$store.commit('StoreCredentials/SAVE_CREDENTIALS', queryString.parse(this.$route.hash));
 
     this.to = this.$route.query.to;
     setTimeout(() => {
-      this.$router.push({path: this.to, query: {auth: true}});
+      this.$router.push({path: this.to});
     }, 2000);
   }
 }

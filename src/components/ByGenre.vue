@@ -10,8 +10,8 @@ import api from '../api.js';
 export default {
   name: 'ByGenre',
   created() {
-    if (Object.keys(this.$route.query).length === 0) {
-      window.location.href =  api.goToSpotifyAuthorizationPage('by-genre');
+    if (!this.$store.state.StoreCredentials.token) {
+      window.location.href = api.goToSpotifyAuthorizationPage('by-genre');
     }
   }
 }
