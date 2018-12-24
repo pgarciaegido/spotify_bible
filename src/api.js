@@ -1,12 +1,8 @@
-import MenuItems from './db/LateralMenuItems.json';
 
 const spotifyAPIBaseURL = 'https://api.spotify.com/v1';
 const spotifyAccountsBaseURL = 'https://accounts.spotify.com/authorize';
 
 export default {
-  fetchMenuItems() {
-    return MenuItems;
-  },
 
   goToSpotifyAuthorizationPage(goTo) {
     const redirectionPath = '/store-credentials';

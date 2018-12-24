@@ -7,22 +7,19 @@
 <script>
 import LateralItem from './LateralItem';
 
-import api from '../api.js';
-
 export default {
   name: 'TheLateral',
   components: {
     LateralItem
   },
-  data() {
-    return {
-      items: []
+  computed: {
+    items() {
+      return this.$store.state.LateralStore.items;
     }
   },
-  created() {
-    this.items = api.fetchMenuItems();
+  created(){
+    this.$store.dispatch('LateralStore/FETCH_MENU_ITEMS');    
   }
-
 }
 </script>
 
