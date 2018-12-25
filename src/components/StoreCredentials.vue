@@ -14,7 +14,9 @@ export default {
   },
   created() {
 
-    this.$store.commit('StoreCredentials/SAVE_CREDENTIALS', queryString.parse(this.$route.hash));
+    this.$store.dispatch(
+      'StoreCredentials/SAVE_CREDENTIALS',
+      queryString.parse(this.$route.hash));
 
     this.to = this.$route.query.to;
     setTimeout(() => {

@@ -11,8 +11,14 @@ export default {
   name: 'ByGenre',
   created() {
     if (!this.$store.state.StoreCredentials.token) {
-      window.location.href = api.goToSpotifyAuthorizationPage('by-genre');
+      return window.location.href = api.goToSpotifyAuthorizationPage('by-genre');
     }
+
+    api.getGenresByCountry({countryCode: 'ES', token: this.$store.state.StoreCredentials.token})
+    .then(res => res.json())
+    .then(genres => console.log(genres))
+    .catch(err => console.log(err));
+
   }
 }
 </script>

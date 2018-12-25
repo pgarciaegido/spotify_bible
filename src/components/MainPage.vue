@@ -39,6 +39,10 @@ export default {
     lateralLoaderActive() {
       return this.$store.state.LateralStore.activeLoader;
     }
+  },
+  created() {
+    // Check at first if we have a valid token ATM.
+    this.$store.dispatch('StoreCredentials/GET_CREDENTIALS');
   }
 }
 </script>
