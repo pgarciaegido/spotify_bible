@@ -7,14 +7,10 @@
 <script>
 export default {
   name: 'TheFooter',
-  data() {
-    return {
-      year: 0
+  computed: {
+    year() {
+      return (new Date()).getFullYear();
     }
-  },
-
-  created() {
-    this.year = (new Date()).getFullYear();
   }
 }
 </script>

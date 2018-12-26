@@ -10,8 +10,9 @@
         <TheLateral />
       </el-aside>
       <el-container>
-        <el-main id="main-content">
-          <h3>Router down here</h3>
+        <el-main
+          id="main-content"
+          v-loading="contentLoaderActive">
           <router-view></router-view>
         </el-main>
         <el-footer>
@@ -37,12 +38,11 @@ export default {
   },
   computed: {
     lateralLoaderActive() {
-      return this.$store.state.LateralStore.activeLoader;
+      return this.$store.state.MainPage.lateralActiveLoader;
+    },
+    contentLoaderActive() {
+      return this.$store.state.MainPage.contentActiveLoader;
     }
-  },
-  created() {
-    // Check at first if we have a valid token ATM.
-    this.$store.dispatch('StoreCredentials/GET_CREDENTIALS');
   }
 }
 </script>

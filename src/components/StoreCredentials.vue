@@ -5,23 +5,23 @@
 <script>
 import queryString from 'query-string';
 
+const getExpirationDate = (expiresIn) => {
+  return + new Date() 
+  // turn to miliseconds
+  + (expiresIn * 1000);
+};
+
 export default {
   name: 'StoreCredentials',
-  data() {
-    return {
-      to: null
-    }
-  },
   created() {
+    const credentials = queryString.parse(this.$route.hash);
+    credentials.expires_in = getExpirationDate(credentials.expires_in);
 
     this.$store.dispatch(
       'StoreCredentials/SAVE_CREDENTIALS',
-      queryString.parse(this.$route.hash));
+      credentials);
 
-    this.to = this.$route.query.to;
-    setTimeout(() => {
-      this.$router.push({path: this.to});
-    }, 2000);
+    this.$router.push({path: this.$route.query.to});
   }
 }
 </script>
