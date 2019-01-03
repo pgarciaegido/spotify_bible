@@ -3,7 +3,7 @@
     <h1>Popular categories in Spain</h1>
     <el-row :gutter="20">
       <el-col :span="8" v-for="genre in genres" :key="genre.id">
-        <el-card>
+        <el-card @click.native="goToCategory(genre.href)">
           <img :src="genre.icons[0].url" />
           <p>{{genre.name}}</p>
         </el-card>
@@ -30,6 +30,11 @@ export default {
     }
 
     this.$store.dispatch('ByGenre/FETCH_GENRES', this.$store.state.StoreCredentials.token);
+  },
+  methods: {
+    goToCategory: function(url) {
+      console.log(url);
+    }
   }
 }
 </script>
@@ -38,7 +43,9 @@ export default {
   #byGenre {
     .el-col {
       margin-bottom: 20px;
+      cursor: pointer;
       .el-card__body {
+
         img {
           width: 100%;
         }
