@@ -1,25 +1,30 @@
 <template>
   <div id="byGenre">
     <!-- CHANGE COUNTRY DIALOG -->
-    <el-dialog title="Country selector" :visible.sync="dialogCountriesVisible">
+    <el-dialog
+      title="Country selector"
+      :visible.sync="dialogCountriesVisible"
+      @close="fetchGenres">
       <p>Este es el country selector</p>
       <el-select 
         v-model="dialogSelectedCountry">
         <el-option
           v-for="country in countries"
-          :key="country"
-          :label="country"
-          :value="country">
+          :key="country.code"
+          :label="country.name"
+          :value="country.code">
         </el-option>
       </el-select>
       <p>{{dialogSelectedCountry}}</p>
       <div>
-        <el-button :disabled="!dialogSelectedCountry">Select Country</el-button>
+        <el-button
+          :disabled="!dialogSelectedCountry"
+          @click="dialogCountriesVisible = false">Select Country</el-button>
       </div>
     </el-dialog>
     <!-- / CHANGE COUNTRY DIALOG -->
     <h1>
-      Popular categories in Spain
+      Popular categories in {{ selectedCountryName }}
       <span class="change-country" @click="dialogCountriesVisible = true">Change country</span>
     </h1>
 
@@ -42,13 +47,18 @@ export default {
   data() {
     return {
       dialogCountriesVisible: false,
-      dialogSelectedCountry: '',
-      countries: [ 'españa', 'portugal']
+      dialogSelectedCountry: 'ES'
     }
   },
   computed: {
     genres() {
       return this.$store.state.ByGenre.genres;
+    },
+    countries() {
+      return this.$store.state.ByGenre.countries;
+    },
+    selectedCountryName() {
+      return this.countries.find((c) => this.dialogSelectedCountry === c.code).name;
     }
   },
   created() {
@@ -60,14 +70,22 @@ export default {
       ));
     }
 
+    this.$store.dispatch("ByGenre/FETCH_COUNTRIES");
+
     this.$store.dispatch(
       "ByGenre/FETCH_GENRES",
-      this.$store.state.StoreCredentials.token
+      { token: this.$store.state.StoreCredentials.token, countryCode: this.dialogSelectedCountry }
     );
   },
   methods: {
     goToCategory(url) {
       console.log(url);
+    },
+    fetchGenres() {
+      this.$store.dispatch(
+        "ByGenre/FETCH_GENRES",
+        { token: this.$store.state.StoreCredentials.token, countryCode: this.dialogSelectedCountry }
+      );
     }
   }
 };
