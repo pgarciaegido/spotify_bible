@@ -1,17 +1,12 @@
 import api from '../../api';
-import countries from '../../db/countries.json';
 
 const state = {
-  genres: [],
-  countries: []
+  genres: []
 };
 
 const mutations = {
   SET_GENRES(state, {items}) {
     state.genres = items;
-  },
-  SET_COUNTRIES(state, payload) {
-    state.countries = payload.countries;
   }
 };
 
@@ -26,9 +21,6 @@ const actions = {
       commit('SET_GENRES', {items: genres.categories.items});
       commit('CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
     });
-  },
-  FETCH_COUNTRIES({commit}) {
-    commit('SET_COUNTRIES', { countries });
   }
 }
 
