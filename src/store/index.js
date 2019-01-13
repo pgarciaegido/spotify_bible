@@ -6,6 +6,7 @@ import LateralStore from './modules/Lateral';
 import StoreCredentials from './modules/StoreCredentials';
 import ByGenre from './modules/ByGenre';
 import CountrySelector from './modules/CountrySelector';
+import UserInfo from './modules/UserInfo';
 
 Vue.use(Vuex);
 
@@ -15,7 +16,8 @@ const store = new Vuex.Store({
     LateralStore,
     StoreCredentials,
     ByGenre,
-    CountrySelector
+    CountrySelector,
+    UserInfo
   }
 });
 
