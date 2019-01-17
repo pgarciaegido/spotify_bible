@@ -11,5 +11,6 @@ export default {
     const url = `${spotifyAPIBaseURL}/browse/categories?country=${params.countryCode}`;
     return fetch(url, { headers: formatAuthorizationHeaders(params.token) });
   },
-  getUserInfo: ({token}) => fetch(`${spotifyAPIBaseURL}/me`, { headers: formatAuthorizationHeaders(token) })
+  getUserInfo: ({token}) => fetch(`${spotifyAPIBaseURL}/me`, { headers: formatAuthorizationHeaders(token) }),
+  getUserPlaylists: ({token, userId}) => fetch(`${spotifyAPIBaseURL}/users/${userId}/playlists`, { headers: formatAuthorizationHeaders(token) })
 }

@@ -1,12 +1,16 @@
 import api from '../../api';
 
 const state = {
-  userInfo: undefined
+  userInfo: {},
+  playlists: []
 };
 
 const mutations = {
   SET_USER_INFO(state, userInfo) {
     state.userInfo = userInfo;
+  },
+  SET_PLAYLISTS(state, playlists) {
+    state.playlists = playlists.items;
   }
 };
 
@@ -19,7 +23,15 @@ const actions = {
     .catch(err => console.log(err))
     .then((userInfo) => {
       commit('SET_USER_INFO', userInfo);
-      commit('CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
+
+      api.getUserPlaylists({ token, userId: userInfo.id })
+      .then(res => res.json())
+      .catch(err => console.log(err))
+      .then((playlists) => {
+        console.log(playlists);
+        commit('SET_PLAYLISTS', playlists);
+        commit('CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
+      })
     })
   }
 }
