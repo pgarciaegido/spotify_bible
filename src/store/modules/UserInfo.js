@@ -1,7 +1,7 @@
 import api from '../../api';
 
 const state = {
-  userInfo: {},
+  userInfo: { followers: {}},
   playlists: []
 };
 
@@ -16,7 +16,7 @@ const mutations = {
 
 const actions = {
   FETCH_USER_INFO({commit}, {token}) {
-    commit('CONTENT_MANAGE_LOADER', { activeLoader: true }, {root: true});
+    commit('MainPage/CONTENT_MANAGE_LOADER', { activeLoader: true }, {root: true});
 
     api.getUserInfo({ token })
     .then(res => res.json())
@@ -30,7 +30,7 @@ const actions = {
       .then((playlists) => {
         console.log(playlists);
         commit('SET_PLAYLISTS', playlists);
-        commit('CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
+        commit('MainPage/CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
       })
     })
   }

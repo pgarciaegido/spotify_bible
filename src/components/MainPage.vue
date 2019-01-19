@@ -6,13 +6,13 @@
     <el-container>
       <el-aside
         id="lateral-menu"
-        v-loading="lateralLoaderActive">
+        v-loading="lateralActiveLoader">
         <TheLateral />
       </el-aside>
       <el-container>
         <el-main
           id="main-content"
-          v-loading="contentLoaderActive">
+          v-loading="contentActiveLoader">
           <router-view></router-view>
         </el-main>
         <el-footer>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex';
 import TheHeader from './Header.vue';
 import TheLateral from './Lateral.vue';
 import TheFooter from './Footer.vue';
@@ -37,12 +37,7 @@ export default {
     TheFooter
   },
   computed: {
-    lateralLoaderActive() {
-      return this.$store.state.MainPage.lateralActiveLoader;
-    },
-    contentLoaderActive() {
-      return this.$store.state.MainPage.contentActiveLoader;
-    }
+    ...mapState('MainPage', ['lateralActiveLoader', 'contentActiveLoader'])
   }
 }
 </script>

@@ -12,14 +12,14 @@ const mutations = {
 
 const actions = {
   FETCH_GENRES({commit}, {token, countryCode}) {
-    commit('CONTENT_MANAGE_LOADER', { activeLoader: true }, {root: true});
+    commit('MainPage/CONTENT_MANAGE_LOADER', { activeLoader: true }, {root: true});
 
     api.getGenresByCountry({countryCode, token})
     .then(res => res.json())
     .catch(err => console.log(err))
     .then((genres) => {
       commit('SET_GENRES', {items: genres.categories.items});
-      commit('CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
+      commit('MainPage/CONTENT_MANAGE_LOADER', { activeLoader: false }, {root: true});
     });
   }
 }

@@ -21,17 +21,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import api from '../api';
 
 export default {
   name: 'userInfo',
   computed: {
-    userInfo() {
-      return this.$store.state.UserInfo.userInfo;
-    },
-    playlists() {
-      return this.$store.state.UserInfo.playlists;
-    }
+    ...mapState('UserInfo', ['userInfo', 'playlists'])
   },
   created() {
     this.$store.dispatch("StoreCredentials/GET_CREDENTIALS");

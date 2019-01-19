@@ -12,11 +12,11 @@ const mutations = {
 
 const actions = {
   FETCH_MENU_ITEMS({commit}){
-    commit('LATERAL_MANAGE_LOADER', { activeLoader: true }, {root: true});
+    commit('MainPage/LATERAL_MANAGE_LOADER', { activeLoader: true }, {root: true});
     // Simulate api call
     setTimeout(() => {
       commit('SET_ITEMS', { menuItems });
-      commit('LATERAL_MANAGE_LOADER', { activeLoader: false }, {root: true});
+      commit('MainPage/LATERAL_MANAGE_LOADER', { activeLoader: false }, {root: true});
     }, 1000);
   }
 }
