@@ -7,6 +7,7 @@ import StoreCredentials from './modules/StoreCredentials';
 import ByGenre from './modules/ByGenre';
 import CountrySelector from './modules/CountrySelector';
 import UserInfo from './modules/UserInfo';
+import Playlist from './modules/Playlist';
 
 Vue.use(Vuex);
 
@@ -17,7 +18,8 @@ const store = new Vuex.Store({
     StoreCredentials,
     ByGenre,
     CountrySelector,
-    UserInfo
+    UserInfo,
+    Playlist
   }
 });
 

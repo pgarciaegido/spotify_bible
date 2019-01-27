@@ -3,24 +3,24 @@
     "id": "userInfo",
     "icon": "el-icon-info",
     "text": "User Information",
-    "route": "user-info"
+    "route": "/user-info"
   },
   {
     "id": "genrePopulars",
     "icon": "el-icon-location",
     "text": "Popular Artists By Genre",
-    "route": "by-genre"
+    "route": "/by-genre"
   },
   {
     "id": "upcoming",
     "icon": "el-icon-loading",
     "text": "Upcoming",
-    "route": "not-found"
+    "route": "/not-found"
   },
   {
     "id": "upcoming2",
     "icon": "el-icon-loading",
     "text": "Upcoming",
-    "route": "not-found"
+    "route": "/not-found"
   }
 ]

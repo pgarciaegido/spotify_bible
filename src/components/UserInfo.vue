@@ -10,7 +10,7 @@
     <div >
       <el-row :gutter="20">
         <el-col :span="8" v-for="playlist in playlists" :key="playlist.id">
-          <el-card>
+          <el-card @click.native="goToPlaylist(playlist.id)">
             <img :src="playlist.images[0].url">
             <p>{{playlist.name}}</p>
           </el-card> 
@@ -42,6 +42,12 @@ export default {
       "UserInfo/FETCH_USER_INFO",
       { token: this.$store.state.StoreCredentials.token }
     );
+  },
+  methods: {
+    goToPlaylist(playlistId) {
+      console.log('hahaha');
+      return this.$router.push(`/playlist/${playlistId}`);
+    }
   }
 }
 </script>

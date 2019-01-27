@@ -12,5 +12,6 @@ export default {
     return fetch(url, { headers: formatAuthorizationHeaders(params.token) });
   },
   getUserInfo: ({token}) => fetch(`${spotifyAPIBaseURL}/me`, { headers: formatAuthorizationHeaders(token) }),
-  getUserPlaylists: ({token, userId}) => fetch(`${spotifyAPIBaseURL}/users/${userId}/playlists`, { headers: formatAuthorizationHeaders(token) })
+  getUserPlaylists: ({token, userId}) => fetch(`${spotifyAPIBaseURL}/users/${userId}/playlists`, { headers: formatAuthorizationHeaders(token) }),
+  getPlaylistInformation: ({token, playlistId}) => fetch(`${spotifyAPIBaseURL}/playlists/${playlistId}`, { headers: formatAuthorizationHeaders(token) })
 }
