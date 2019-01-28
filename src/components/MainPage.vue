@@ -13,6 +13,9 @@
         <el-main
           id="main-content"
           v-loading="contentActiveLoader">
+          <el-button @click="play">
+            Play!
+          </el-button>
           <router-view></router-view>
         </el-main>
         <el-footer>
@@ -38,6 +41,13 @@ export default {
   },
   computed: {
     ...mapState('MainPage', ['lateralActiveLoader', 'contentActiveLoader'])
+  },
+  methods: {
+    play() {
+      const audio = new Audio('http://192.168.1.41:8010/tangana.mp3');
+      console.log(audio);
+      audio.play().catch(x => audio.play());
+    }
   }
 }
 </script>
